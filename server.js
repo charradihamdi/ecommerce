@@ -8,6 +8,7 @@ const userRoutes = require('./src/rootes/user')
 
 //envirement variable or you can say constants
 env.config();
+app.use(bodyparser.json());
 //mongodb connection
 //mongodb+srv://root:<password>@cluster0.rfqp4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 mongoose.connect(`mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster0.rfqp4.mongodb.net/${process.env.MONGO_DB_DATABASE}?retryWrites=true&w=majority`, {

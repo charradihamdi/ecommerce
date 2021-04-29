@@ -1,4 +1,4 @@
-const User = require('./user')
+const User = require("../models/usermodels");
 exports.signup = (req, res) => {
     User.findOne({ email: req.body.email })
         .exec((error, user) => {
@@ -22,8 +22,10 @@ exports.signup = (req, res) => {
 
             _user.save((error, data) => {
                 if (error) {
+                    console.log(error);
                     return res.status(400).json({
-                        message: 'samething went wrong'
+                      message: "samething went wrong",
+                      error: error,
                     });
                 }
 
